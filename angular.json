@@ -130,7 +130,6 @@
       }
     }
   },
-  "defaultProject": "ngxs-auth",
   "cli": {
     "analytics": false
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 
@@ -10,9 +10,9 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   constructor(private store: Store,
-              private fb: FormBuilder,
+              private fb: UntypedFormBuilder,
               private router: Router) { }
 
   // tslint:disable-next-line: typedef

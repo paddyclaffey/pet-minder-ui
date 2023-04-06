@@ -125,3 +125,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+.angular/cache
+.angular/cache/13.3.11/angular-webpack/4a22b93595ea827f621c0935df2c7d42ee9db83f/0.pack
