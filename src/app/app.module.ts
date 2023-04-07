@@ -7,15 +7,8 @@ import { HttpClientModule} from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from  '@angular/material/button';
-import { MatToolbarModule } from  '@angular/material/toolbar';
-import { MatIconModule } from  '@angular/material/icon';
-import { MatSidenavContainer, MatSidenavModule } from  '@angular/material/sidenav';
-import { MatListModule } from  '@angular/material/list';
-import { MatDividerModule } from '@angular/material/divider';
-
-
-
+import { MaterialModule } from './material.module';
+import { AnimalAnimationModule } from './shared/utils/animal/animal-animation.module';
 
 
 @NgModule({
@@ -31,15 +24,9 @@ import { MatDividerModule } from '@angular/material/divider';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    MatSidenavModule
+    MaterialModule,
+    AnimalAnimationModule,
   ],
-  providers: [MatSidenavContainer],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PetRoute, getPetRoute } from './shared/utils/routes/routes';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ngxs-auth';
+  title = 'Pet Minder';
+
+  public get petRoute(): typeof PetRoute {
+    return PetRoute; 
+  }
+
+  public getPetRoute(route: PetRoute): string {
+    return getPetRoute(PetRoute.VIEW)
+  }
 }
