@@ -14,11 +14,15 @@ const routes: Routes = [
     // add redirect guard to login if token and home if 
   },
   {
+    path: 'pet',
+    loadChildren: () => import('./modules/pet/pet.module').then((m) => m.PetModule),
+    // add redirect guard to login if token and home if 
+  },
+  {
     path: 'admin',
     loadChildren: () => import('./modules/admin/admin.module').then((m) => m.AdminModule),
     // canActivate: [AuthGuard]
   },
-  { path: Route.PET, loadChildren: () => import('./pet/pet.module').then(m => m.PetModule) },
 ];
 
 @NgModule({

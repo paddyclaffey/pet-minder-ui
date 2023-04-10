@@ -1,0 +1,43 @@
+<mat-toolbar>
+    <span>Registration</span>
+</mat-toolbar>
+<mat-card class="my-card">
+    <mat-card-content>
+        <form [formGroup]="registerForm" class="my-form">
+            <mat-form-field class="full-width">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="First name" formControlName="firstName" required>
+              </mat-form-field>
+              <mat-form-field class="full-width">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Last Name" formControlName="lastName" required>
+              </mat-form-field>
+              <mat-form-field class="full-width">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Address" formControlName="address" required>
+              </mat-form-field>
+              <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="email">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="dob">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              
+              <mat-radio-group formControlName="gender">
+                <mat-radio-button class="example-margin" value="male">Male</mat-radio-button>
+                <mat-radio-button class="example-margin" value="female">Female</mat-radio-button>
+                <mat-radio-button class="example-margin" value="other">Other</mat-radio-button>
+              </mat-radio-group>
+              
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+
+    </mat-card-actions>
+</mat-card>
