@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-pet',
+  selector: 'pm-pet',
   templateUrl: './pet.component.html',
   styleUrls: ['./pet.component.scss']
 })

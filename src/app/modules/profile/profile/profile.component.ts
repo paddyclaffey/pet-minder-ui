@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'pm-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })

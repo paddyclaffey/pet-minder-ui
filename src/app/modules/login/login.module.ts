@@ -4,18 +4,20 @@ import { CommonModule } from '@angular/common';
 import { NgxsModule } from '@ngxs/store';
 import { LoginRoutingModule } from './login.routing';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
-import { AuthState } from './states/stores/login.state';
-import { ProfileModule } from '../profile/profile.module';
+import { MaterialModule } from 'src/app/shared/material.module';
+import { LoginService } from 'src/app/core/services/login.service';
 
 @NgModule({
   declarations: [LoginComponent],
   imports: [
-    NgxsModule.forFeature([AuthState]),
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    ProfileModule,
+    MaterialModule,
+  ],
+  providers: [
+    LoginService,
   ]
 })
 export class LoginModule { }

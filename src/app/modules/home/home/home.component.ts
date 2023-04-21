@@ -1,24 +1,20 @@
 import { Component } from '@angular/core';
-import { PetRoute, getPetRoute } from './shared/utils/routes/routes';
 import { Router } from '@angular/router';
+import { PetRoute, getPetRoute } from 'src/app/shared/utils/routes/routes';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'pm-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class AppComponent {
-  
-  public loading: boolean;
-  public title = 'Pet Minder';
+export class HomeComponent {
+  title = 'Pet Minder';
   
   public get petRoute(): typeof PetRoute {
     return PetRoute; 
   }
   
-  constructor(private _router: Router) {
-    this.loading = false
-  }
+  constructor(private _router: Router) {}
   
   public getPetRoute(route: PetRoute): string {
     return getPetRoute(route);
