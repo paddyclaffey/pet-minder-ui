@@ -17,7 +17,7 @@ export class UserStateModel implements IUser {
   dob: Date;
   roles: string[];
 
-  token?: string;
+  access_token?: string;
 }
 
 @State<UserStateModel>({
@@ -33,7 +33,7 @@ export class UserStateModel implements IUser {
     dob: null,
     roles: [],
   
-    token: '',
+    access_token: '',
   }
 })
 @Injectable({
@@ -44,7 +44,7 @@ export class UserState implements NgxsOnInit {
   @Selector()
   static user(state: UserStateModel) { return state; }
 
-  constructor(private storage: NgxsStoragePlugin) {}
+  constructor() {}
   
   ngxsOnInit(ctx: StateContext<UserStateModel>) {
     const user = {
@@ -59,7 +59,9 @@ export class UserState implements NgxsOnInit {
       roles: [],
       username: "admin",
     };
+    console.log(1, this);
     return of(user).pipe(tap(user => {
+      console.log(2);
           ctx.patchState(user);
         })
       );
@@ -71,18 +73,16 @@ export class UserState implements NgxsOnInit {
       ctx.setState({ ...state, ...action.payload });
   }
 
-  @Action(LoginActions.Logout)
-  logout({ setState, getState }: StateContext<UserStateModel>) {
-    const { token } = getState();
-    setState(null);
+  @Action(LoginActions.SetToken)
+  setToken(ctx: StateContext<UserStateModel>, action: LoginActions.SetToken) {
+      const state = ctx.getState();
+      ctx.setState({ ...state, access_token: action.payload });
   }
 
-  // @Action(LoginActions.LoadUserStateFromStorage)
-  // loadStateFromStorage(ctx: StateContext<UserStateModel>) {
-  //   const state = this.storage.getState();
-  //   if (state) {
-  //     ctx.setState(state);
-  //   }
-  // }
+  @Action(LoginActions.Logout)
+  logout({ setState, getState }: StateContext<UserStateModel>) {
+    const { access_token } = getState();
+    setState(null);
+  }
 
 }

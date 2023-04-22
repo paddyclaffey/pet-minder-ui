@@ -7,7 +7,6 @@ import { LoginService } from 'src/app/core/services/login.service';
 import { OnDestroyMixin, untilComponentDestroyed } from '@w11k/ngx-componentdestroyed';
 import { LoginActions } from '../../states/actions/login.actions';
 
-// import { AccountService, AlertService } from '../_services';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +14,12 @@ import { LoginActions } from '../../states/actions/login.actions';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent extends OnDestroyMixin {
-error
+  error
   public form: FormGroup;
-  
-  constructor (private _store: Store,
-              private _router: Router,
-              private _loginService: LoginService) {
+
+  constructor(private _store: Store,
+    private _router: Router,
+    private _loginService: LoginService) {
     super();
     this.form = new FormGroup({
       username: new FormControl('admin'),
@@ -30,10 +29,8 @@ error
 
   public submit() {
     if (this.form.valid) {
-      console.log('submit')
       this._loginService.login(this.form.value).pipe(take(1), untilComponentDestroyed(this)).subscribe(
         user => {
-          console.log('logged In', user);
           this._store.dispatch(new LoginActions.Login(user))
           this._router.navigate(['/']);
         },
@@ -41,4 +38,5 @@ error
           console.log(err)
         })
     }
-  }}
+  }
+}

@@ -12,6 +12,7 @@ export namespace LoginActions {
 
   export class SetToken  {
     static readonly type = '[Auth] Set Token';
+    constructor(public payload: string) {}
   }
 
   export class LoadUserStateFromStorage  {

@@ -1,6 +1,6 @@
-import { Injectable, OnInit } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from "@angular/router";
-import { Select, Store } from "@ngxs/store";
+import { Select } from "@ngxs/store";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { UserState } from "src/app/modules/login/states/stores/login.state";
@@ -9,16 +9,12 @@ import { IUser } from "../models/User";
 @Injectable({
     providedIn: 'root'
   })
-  export class AuthGuard implements OnInit, CanActivate {
+  export class AuthGuard implements CanActivate {
 
     @Select(UserState.user) private _user$: Observable<IUser>;
 
     constructor(private router: Router) {}
   
-    ngOnInit(): void {
-        
-    }
-
     canActivate(
       route: ActivatedRouteSnapshot,
       state: RouterStateSnapshot

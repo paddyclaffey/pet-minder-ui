@@ -1,20 +1,35 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Select, Store } from '@ngxs/store';
+import { UserState } from 'src/app/modules/login/states/stores/login.state';
+import { IUser } from '../models/User';
+import { OnDestroyMixin, untilComponentDestroyed } from '@w11k/ngx-componentdestroyed';
+import { Router } from '@angular/router';
 
 @Injectable()
-export class PmHttpInterceptor implements HttpInterceptor {
+export class PmHttpInterceptor extends OnDestroyMixin implements OnInit, HttpInterceptor {
 
-  constructor() {}
+  private user: IUser;
+
+  constructor(private store: Store) {
+    super();
+    this.store.select(UserState.user).subscribe(user => {
+      console.log('User changed:', user);
+      this.user = user;
+    });
+  }
+
+  ngOnInit(): void {
+  }
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const authToken = `eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwic3ViIjoiYWRtaW4iLCJleHAiOjE2ODIxOTc0NjQsImlhdCI6MTY4MjExMTA2NCwicm9sZXMiOltdfQ.h_Z_aSsHYL0vLIBqlrGYYLfmaNHjRyM3cKqRg4jDJcQ`;
-    //localStorage.getItem('token');
-
-    if (authToken) {
+    req = req.clone({
+      url: `http://localhost:8080/${req.url}`
+    });
+    if (this.user?.access_token) {
       const authReq = req.clone({
-        headers: req.headers.set('Authorization', `Bearer ${authToken}`),
-        url: `http://localhost:8080/${req.url}`
+        headers: req.headers.set('Authorization', `Bearer ${this.user?.access_token}`),
       });
       return next.handle(authReq);
     }
