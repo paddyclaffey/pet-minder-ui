@@ -4,16 +4,18 @@ import { MaterialModule } from 'src/app/shared/material.module';
 import { HomeComponent } from './home/home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { ProfileModule } from '../profile/profile.module';
+import { MainModule } from './home/main/main.module';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     ProfileModule,
     HomeRoutingModule,
+    MainModule,
   ]
 })
 export class HomeModule { }

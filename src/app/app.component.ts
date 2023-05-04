@@ -24,9 +24,4 @@ export class AppComponent {
     return getPetRoute(route);
   }
 
-  public goToUrl(url: string) {
-    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this._router.navigate([url]);
-    });
-  }
 }

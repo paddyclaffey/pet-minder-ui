@@ -32,7 +32,8 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/snapsvg/dist/snap.svg-min.js"
+              "node_modules/snapsvg/dist/snap.svg-min.js",
+              "node_modules/@lottiefiles/lottie-player/dist/lottie-player.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,

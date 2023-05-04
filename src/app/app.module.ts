@@ -15,7 +15,7 @@ import { UserState } from './modules/login/states/stores/login.state';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     NgxsModule.forRoot([UserState]),

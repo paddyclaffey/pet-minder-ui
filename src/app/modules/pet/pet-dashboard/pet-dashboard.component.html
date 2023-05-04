@@ -1,0 +1,12 @@
+<div *ngIf="!loading">
+  <div *ngIf="pets?.length">
+    <div class="image-list">
+      <div class="image-wrapper" *ngFor="let image of images">
+        <img src="{{ image.src }}">
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!pets?.length">
+    add pet 
+  </div>
+</div>

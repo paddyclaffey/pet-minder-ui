@@ -1,15 +1,16 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { first, take } from 'rxjs/operators';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { take } from 'rxjs/operators';
 import { Store } from '@ngxs/store';
-import { LoginService } from 'src/app/core/services/login.service';
 import { OnDestroyMixin, untilComponentDestroyed } from '@w11k/ngx-componentdestroyed';
 import { LoginActions } from '../../states/actions/login.actions';
+import { LoginService } from 'src/app/shared/services/login-service/login.service';
+import { Route } from 'src/app/shared/utils/routes/routes';
 
 
 @Component({
-  selector: 'app-login',
+  selector: 'pm-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -38,5 +39,9 @@ export class LoginComponent extends OnDestroyMixin {
           console.log(err)
         })
     }
+  }
+
+  public goToRegister(): void {
+    this._router.navigate([Route.REGISTER]);
   }
 }

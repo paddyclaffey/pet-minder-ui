@@ -1,0 +1,18 @@
+<div>
+    <h2>Create a New Pet</h2>
+    <form [formGroup]="petForm" (ngSubmit)="createPet()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name">
+        <label for="breed">Breed:</label>
+        <input type="text" id="breed" formControlName="breed">
+        <label for="type">Type:</label>
+        <input type="text" id="type" formControlName="type">
+        <label for="age">Age:</label>
+        <input type="date" id="age" formControlName="age">
+        <label for="colour">Colour:</label>
+        <input type="text" id="colour" formControlName="colour">
+        <label for="size">Size:</label>
+        <input type="text" id="size" formControlName="size">
+        <button type="submit">Create Pet</button>
+      </form>
+  </div>

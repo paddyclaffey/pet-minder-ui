@@ -14,13 +14,12 @@ export class RegisterComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       address: ['', Validators.required],
-      email: ['', [Validators.required, ] ], // Validators.email]],
-      dob: ['', [Validators.required, ] ], // this.minAgeValidator(16)]],
-      gender: ['', [Validators.required]],
+      email: ['', [Validators.required,]], // Validators.email]],
+      dob: ['', [Validators.required,]], // this.minAgeValidator(16)]],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onCancel() {
     console.log(this.registerForm.value);

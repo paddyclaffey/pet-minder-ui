@@ -34,17 +34,9 @@
         <mat-icon>info</mat-icon>
         <span>About</span>
       </button>
-      <button mat-button class="menu-button" (click)="goToUrl(getPetRoute(petRoute.VIEW))">
-        <mat-icon>info</mat-icon>
-        <span>Pets</span>
-      </button>
-      <button mat-button class="menu-button" (click)="goToUrl(getPetRoute(petRoute.SHARK))">
-        <mat-icon>info</mat-icon>
-        <span>Shark</span>
-      </button>
-      <button mat-button class="menu-button" (click)="goToUrl(getPetRoute(petRoute.GIRAFFE))">
-        <mat-icon>info</mat-icon>
-        <span>Giraffe</span>
+      <button mat-button (click)="logout()" class="menu-button">
+        <mat-icon>logout</mat-icon>
+        <span>Log out</span>
       </button>
   
       <mat-divider></mat-divider>
