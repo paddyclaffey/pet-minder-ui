@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PetComponent } from './pet.component';
-import { PetRoute, Route } from 'src/app/shared/utils/routes/routes';
+import { PetRoute } from 'src/app/shared/utils/routes/routes';
+import { PetCreateComponent } from './pet-create/pet-create.component';
+import { PetDashboardComponent } from './pet-dashboard/pet-dashboard.component';
 
 const routes: Routes = [
   {
-      path: PetRoute.VIEW_ALL,
-      component: PetComponent,
+      path: PetRoute.DASHBOARD,
+      component: PetDashboardComponent,
+  },
+  {
+      path: PetRoute.CREATE,
+      component: PetCreateComponent,
   },
 ];
 

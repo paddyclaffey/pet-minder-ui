@@ -1,0 +1,23 @@
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-subtitle>{{pet.breed}}</mat-card-subtitle>
+    <mat-card-title>
+      <span class="flex-space-betweem">
+        {{pet.name}}
+        <mat-icon (click)="edit(pet)">edit</mat-icon>
+      </span>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    {{pet.dob}}
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-actions>
+    <pm-confirmation-button (confirmationAction)="deletePet(pet)" displayText="DELETE"></pm-confirmation-button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

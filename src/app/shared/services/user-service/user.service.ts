@@ -9,7 +9,7 @@ import { Store } from '@ngxs/store';
 @Injectable()
 export class UserService extends OnDestroyMixin {
 
-    private readonly _URL = 'users/';
+    private readonly _URL = 'user/';
 
     constructor(private _http: HttpClient, private _store: Store) {
         super();

@@ -17,7 +17,11 @@ export class PetService extends OnDestroyMixin {
     return this._http.get<IPet[]>(`${this.url}`);
   }
 
-  public createPet(pet: IPet): Observable<any> {
-    return this._http.post(`${this.url}`, pet);
+  public createPet(pet: IPet): Observable<IPet> {
+    return this._http.post<IPet>(`${this.url}`, pet);
+  }
+
+  public deletePet(pet: IPet): Observable<IPet> {
+    return this._http.delete<IPet>(`${this.url}/${pet.id}`);
   }
 }

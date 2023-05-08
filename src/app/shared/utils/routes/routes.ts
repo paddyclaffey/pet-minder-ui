@@ -8,7 +8,7 @@ export enum Route {
 
 export enum PetRoute {
     VIEW = '', // path variable
-    VIEW_ALL = 'all',
+    DASHBOARD = 'dashboard',
     CREATE = 'create',
 }
 

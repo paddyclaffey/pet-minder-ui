@@ -10,6 +10,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavContainer, MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 
@@ -27,6 +28,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatInputModule,
     MatSidenavModule,
     MatDividerModule,
+    MatProgressBarModule,
   ],
   exports: [
     MatButtonModule,
@@ -41,6 +43,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatInputModule,
     MatSidenavModule,
     MatDividerModule,
+    MatProgressBarModule,
   ],
   providers: [MatSidenavContainer],
 })

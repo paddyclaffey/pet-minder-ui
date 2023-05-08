@@ -17,7 +17,7 @@ export class MainComponent extends OnDestroyMixin implements OnInit {
   constructor(private _petService: PetService) {
     super();
     this.actions = [
-      { title: MainActions.VIEW_PETS, url: getPetRoute(PetRoute.VIEW_ALL), action: 'View' },
+      { title: MainActions.VIEW_PETS, url: getPetRoute(PetRoute.DASHBOARD), action: 'View' },
       { title: MainActions.CREATE_PETS, url: getPetRoute(PetRoute.CREATE), action: 'Create' },
       // { title: 'Action 2', url: '/action-2' },
       // { title: 'Action 3', url: '/action-3' }

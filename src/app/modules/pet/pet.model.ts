@@ -1,8 +1,9 @@
 export interface IPet {
+    id: number;
     name: string;
     breed: string;
     type: string;
-    age: Date;
+    dob: Date;
     colour: string;
     size: string;
     

@@ -9,7 +9,10 @@ import { LoadingComponent } from './loading.component';
     LoadingComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+  ],
+  exports: [
+    LoadingComponent,
   ]
 })
 export class LoadingModule { }
