@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConfirmationButtonComponent } from './confirmation-button.component';
+import { MaterialModule } from '../../material.module';
 
 
 
@@ -9,7 +10,8 @@ import { ConfirmationButtonComponent } from './confirmation-button.component';
     ConfirmationButtonComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule,
   ],
   exports: [
     ConfirmationButtonComponent,

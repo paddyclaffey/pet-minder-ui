@@ -3,6 +3,8 @@ import { IPet } from '../pet.model';
 import { PetService } from '../pet-service/pet.service';
 import { OnDestroyMixin, untilComponentDestroyed } from '@w11k/ngx-componentdestroyed';
 import { take } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { PetRoute, getPetRoute } from 'src/app/shared/utils/routes/routes';
 
 @Component({
   selector: 'pm-pet',
@@ -16,7 +18,7 @@ export class PetComponent extends OnDestroyMixin implements OnInit {
   
   public loading: boolean;
 
-  constructor(private petService: PetService) {
+  constructor(private petService: PetService, private router: Router) {
     super();
     this.loading = false;
   }
@@ -26,6 +28,10 @@ export class PetComponent extends OnDestroyMixin implements OnInit {
 
   edit(pet: IPet): void {
     console.log('edit', pet)
+  }
+
+  createSchedule(pet: IPet): void {
+    this.router.navigate([getPetRoute(PetRoute.CREATE_SCHEDULE), pet.id]);
   }
 
   deletePet(pet: IPet): void {

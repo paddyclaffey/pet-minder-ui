@@ -11,6 +11,8 @@ import { PetCreateComponent } from './pet-create/pet-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConformationButtonModule } from 'src/app/shared/components/confirmation-button/confirmation-button.module';
 import { LoadingModule } from 'src/app/shared/components/loading/loading.module';
+import { ScheduleComponent } from './scheduel/schedule.component';
+import { PetCreatesSheduleComponent } from './pet-create-schedule/pet-create-schedule.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { LoadingModule } from 'src/app/shared/components/loading/loading.module'
     PetComponent,
     PetDashboardComponent,
     PetCreateComponent,
+    ScheduleComponent,
+    PetCreatesSheduleComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,17 @@
+:host {
+    min-width: 250px;
+}
+
+.content {
+    padding: 16px;
+}
+
+.content > mat-card {
+    width: 200px;
+}
+
+.flex-space-betweem {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}

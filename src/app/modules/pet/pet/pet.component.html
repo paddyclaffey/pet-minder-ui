@@ -10,12 +10,26 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    {{pet.dob}}
+    <span>
+      <div>
+        {{pet.dob}}
+      </div>
+      <div>
+        <div *ngIf="pet?.schedules?.length">
+          <pm-schedule (refresh)="petChaged.emit()" [schedules]="pet.schedules"></pm-schedule>
+        </div>
+        <div *ngIf="!pet?.schedules?.length">
+          No schedule's for {{pet.name}}
+        </div>
+      </div>
+    </span>
+
+    
     <mat-divider></mat-divider>
   </mat-card-content>
   <mat-card-actions>
     <pm-confirmation-button (confirmationAction)="deletePet(pet)" displayText="DELETE"></pm-confirmation-button>
-    <button mat-button>SHARE</button>
+    <button mat-button (click)="createSchedule(pet)">CREATE SCHEDULE</button>
   </mat-card-actions>
   <mat-card-footer>
     <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>

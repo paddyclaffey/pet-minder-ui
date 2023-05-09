@@ -1,3 +1,5 @@
+import { IPetSchedule } from "./scheduel/schedule.model";
+
 export interface IPet {
     id: number;
     name: string;
@@ -7,4 +9,5 @@ export interface IPet {
     colour: string;
     size: string;
     
+    schedules: IPetSchedule;
 }

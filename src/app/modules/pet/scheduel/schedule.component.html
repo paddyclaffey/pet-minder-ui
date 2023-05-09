@@ -1,0 +1,12 @@
+
+
+<div *ngFor="let schedule of schedules">
+
+  <span>
+    <mat-icon (click)="delete(schedule)">delete</mat-icon>
+    <span>
+      {{schedule.category}}
+      {{schedule.frequencyInterval}}
+    </span>
+  </span>
+</div>

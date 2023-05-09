@@ -10,6 +10,7 @@ export enum PetRoute {
     VIEW = '', // path variable
     DASHBOARD = 'dashboard',
     CREATE = 'create',
+    CREATE_SCHEDULE = 'create_schedule',
 }
 
 export enum ProfileRoute {
