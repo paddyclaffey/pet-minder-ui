@@ -3,7 +3,10 @@ import { Action, MainActions } from '../action/action.model';
 import { PetRoute, Route, getPetRoute } from 'src/app/shared/utils/routes/routes';
 import { PetService } from 'src/app/modules/pet/pet-service/pet.service';
 import { OnDestroyMixin, untilComponentDestroyed } from '@w11k/ngx-componentdestroyed';
-import { take } from 'rxjs/operators';
+import { catchError, map, take, tap } from 'rxjs/operators';
+import { Store } from '@ngxs/store';
+import { ShowSuccessMessage } from 'src/app/shared/modules/snackbar/snackbar.actions';
+import { WebSocketService } from 'src/app/shared/services/websocket-service/websocket.service';
 
 @Component({
   selector: 'pm-main',
@@ -14,7 +17,8 @@ export class MainComponent extends OnDestroyMixin implements OnInit {
   
   public actions: Action[];
 
-  constructor(private _petService: PetService) {
+  constructor(private _petService: PetService,
+              private store: Store) {
     super();
     this.actions = [
       { title: MainActions.VIEW_PETS, url: getPetRoute(PetRoute.DASHBOARD), action: 'View' },
@@ -27,9 +31,13 @@ export class MainComponent extends OnDestroyMixin implements OnInit {
   ngOnInit(): void {
     this._petService.getPets().pipe(take(1), untilComponentDestroyed(this)).subscribe(pets => {
       if (!pets?.length) {
-        MainActions
+        // MainActions
       }
-    })
+    });
+  }
+
+  show() {
+    this.store.dispatch(new ShowSuccessMessage("test"));
   }
 
 }

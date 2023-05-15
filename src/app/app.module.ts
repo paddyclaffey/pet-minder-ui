@@ -11,6 +11,7 @@ import { AnimalAnimationModule } from './shared/utils/animal/animal-animation.mo
 import { PmHttpInterceptor } from './shared/services/http.inteceptor';
 import { LoadingPageModule } from './shared/components/loading-page/loading-page.module';
 import { UserState } from './modules/login/states/stores/login.state';
+import { SnackbarModule } from './shared/modules/snackbar/snackbar.module';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { UserState } from './modules/login/states/stores/login.state';
     BrowserAnimationsModule,
     AnimalAnimationModule,
     LoadingPageModule,
+    SnackbarModule,
   ],
   providers: [
     NgxsStoragePlugin,
